@@ -1,6 +1,5 @@
-export function themeComponent(component, theme) {
-  for (let [prop, color] of Object.entries(theme)) {
-    let varString = `--${component}-${prop}`;
-    document.documentElement.style.setProperty(varString, color);
+export function styleComponent(component, theme) {
+  for (let [prop, def] of Object.entries(theme)) {
+    component.style[prop] = def;
   }
 }
