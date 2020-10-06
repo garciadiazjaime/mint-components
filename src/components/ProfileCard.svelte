@@ -5,7 +5,7 @@
   import Location from './Location.svelte';
   import ImageLoader from './ImageLoader.svelte';
     import { formatPhoneNumber } from '../utils/postUtil';
-  export let data = {};
+  export let profile = {};
   export let cardAction = {};
 </script>
 <style>
@@ -34,26 +34,26 @@
 		}
 	}
 </style>
-<Card>
+<Card data-id={profile.id ? profile.id : ''} >
   <div class="card-content">
     <div class="card-action" on:click={cardAction}>
-      {#if data.image}
-        <ImageLoader src={data.image} alt={data.title} height="180px" />
+      {#if profile.image}
+        <ImageLoader src={profile.image} alt={profile.title} height="180px" />
       {/if}
-      {#if data.title}
+      {#if profile.title}
         <div class="title">
-          {data.title}
+          {profile.title}
         </div>
       {/if}
     </div>
-    {#if data.keywords}
-      <Keywords keywords={data.keywords} />
+    {#if profile.keywords}
+      <Keywords keywords={profile.keywords} />
     {/if}
-    {#if data.location}
-      <Location address={data.location.address} dist={data.location.dist} coords={data.location.coords} />
+    {#if profile.location}
+      <Location address={profile.location.address} dist={profile.location.dist} coords={profile.location.coords} />
     {/if}
-    <LinkButton href={`tel:${data.phone}`}>
-      {formatPhoneNumber(data.phone)}
+    <LinkButton href={`tel:${profile.phone}`}>
+      {formatPhoneNumber(profile.phone)}
     </LinkButton>
   </div>
 </Card>
