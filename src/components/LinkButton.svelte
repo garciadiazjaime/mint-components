@@ -3,7 +3,7 @@
   import { styleComponent } from "../utils/themeUtil";
   
   export let theme = {};
-  export let action;
+  export let href = '';
   let component;
 
   onMount(async () => {
@@ -14,7 +14,7 @@
 
 </script>
 <style>
-  button {
+  a {
     background-color: #f69571;
     border: none;
     color: #fff;
@@ -31,6 +31,6 @@
     width: 100%;
   }
 </style>
-<button bind:this={component} on:click={action}>
+<a bind:this={component} {href}>
   <slot />
-</button>
+</a>
