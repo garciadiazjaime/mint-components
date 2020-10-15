@@ -4,7 +4,8 @@
   import Keywords from './Keywords.svelte';
   import Location from './Location.svelte';
   import ImageLoader from './ImageLoader.svelte';
-    import { formatPhoneNumber } from '../utils/postUtil';
+  import Whatsapp from './Whatsapp.svelte';
+  import { formatPhoneNumber, getWhatsapp } from '../utils/postUtil';
   export let profile = {};
   export let cardAction = {};
 </script>
@@ -37,8 +38,11 @@
 <Card data-id={profile.id ? profile.id : ''} >
   <div class="card-content">
     <div class="card-action" on:click={cardAction}>
-      {#if profile.image}
-        <ImageLoader src={profile.image} alt={profile.title} height="180px" />
+      {#if profile.mediaUrl}
+        <ImageLoader src={profile.mediaUrl} alt={profile.title} height="180px" />
+      {/if}
+      {#if getWhatsapp(profile.caption)}
+        <Whatsapp whatsapp={getWhatsapp(profile.caption)} />
       {/if}
       {#if profile.title}
         <div class="title">
@@ -50,10 +54,10 @@
       <Keywords keywords={profile.keywords} />
     {/if}
     {#if profile.location}
-      <Location address={profile.location.address} dist={profile.location.dist} coords={profile.location.coords} />
+      <Location address={profile.address} dist={profile.dist} coords={profile.gps} />
     {/if}
-    <LinkButton href={`tel:${profile.phone}`}>
-      {formatPhoneNumber(profile.phone)}
+    <LinkButton href={`tel:${profile.phones[0]}`}>
+      {formatPhoneNumber(profile.phones[0])}
     </LinkButton>
   </div>
 </Card>
