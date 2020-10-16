@@ -56,8 +56,10 @@
     {#if profile.location}
       <Location address={profile.address} dist={profile.dist} coords={profile.gps} />
     {/if}
-    <LinkButton href={`tel:${profile.phones[0]}`}>
-      {formatPhoneNumber(profile.phones[0])}
+    {#if profile.phone}
+    <LinkButton href={`tel:${profile.phone}`}>
+      {formatPhoneNumber(profile.phone)}
     </LinkButton>
+    {/if}
   </div>
 </Card>
