@@ -40,11 +40,7 @@
   <div class="card-content">
     <div class="card-action" on:click={cardAction}>
       {#if profile.mediaUrl}
-<<<<<<< Updated upstream
-        <ImageLoader src={profile.mediaUrl} alt={profile.title} height="180px" refreshDB={() => console.log('execute')} />
-=======
         <ImageLoader src={profile.mediaUrl} alt={profile.title} height="180px" {refreshDB} />
->>>>>>> Stashed changes
       {/if}
       {#if getWhatsapp(profile.caption)}
         <Whatsapp whatsapp={getWhatsapp(profile.caption)} />

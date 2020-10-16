@@ -1,7 +1,6 @@
 <script>
 	import ProfileCard from '../components/ProfileCard.svelte'
   import Loading from '../components/Loading.svelte'
-  import { instagramPostImageMutation } from '../utils/mintAPIUtil'
 	const profile = {
     id: '123greenStreet',
     caption: 'whatsapp 6643332222',
@@ -18,4 +17,4 @@
   };
 </script>
 
-<ProfileCard cardAction={() => console.log('This card has been clicked')} {profile} refreshDB={instagramPostImageMutation} />
+<ProfileCard cardAction={() => console.log('This card has been clicked')} {profile} refreshDB={() => console.log('DB refresh request simulation')} />
