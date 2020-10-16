@@ -1,12 +1,32 @@
 <script>
-  import Loading from '../components/Loading.svelte'
-  export let src;
+  import { onMount } from 'svelte';
+  import Loading from '../components/Loading.svelte';
+
+  export let src = [];
+  export let refreshDB = {};
   export let alt;
   export let height = '100%';
   export let width = '100%';
   export let errorImage = 'http://www.feedmetj.com/error_img.svg';
+  let imageIndex = 1;
 
-  import { onMount } from 'svelte';
+  function getSrc(src) {
+    if (src) {
+      if(Array.isArray(src)) {
+        return src[0];
+      }
+      return src;
+    }
+  }
+
+  function getValidImage(index) {
+    let newSrc;
+    if (index < src.length) {
+      newSrc = src[index];
+    }
+    imageIndex += 1;
+    return newSrc;
+  }
 
   let loaded = false;
   let thisImage;
@@ -18,7 +38,10 @@
       loaded = true
     }
     thisImage.onerror = () => {
-      src = errorImage;
+      src = getValidImage(imageIndex) || errorImage;
+      if(refreshDB) {
+        refreshDB(src);
+      }
     }
   });
 
@@ -53,5 +76,5 @@
       <Loading />
     </div>
   {/if}
-  <img {src} {alt} class:loaded bind:this={thisImage} loading="lazy" />
+  <img src={getSrc(src)} {alt} class:loaded bind:this={thisImage} loading="lazy" />
 </div>

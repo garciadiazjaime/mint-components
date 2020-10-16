@@ -6,6 +6,7 @@
   import ImageLoader from './ImageLoader.svelte';
   import Whatsapp from './Whatsapp.svelte';
   import { formatPhoneNumber, getWhatsapp } from '../utils/postUtil';
+  import { instagramPostImageMutation } from '../utils/mintAPIUtil'
   export let profile = {};
   export let cardAction = {};
 </script>
@@ -39,7 +40,7 @@
   <div class="card-content">
     <div class="card-action" on:click={cardAction}>
       {#if profile.mediaUrl}
-        <ImageLoader src={profile.mediaUrl} alt={profile.title} height="180px" />
+        <ImageLoader src={profile.mediaUrl} alt={profile.title} height="180px" refreshDB={() => console.log('execute')} />
       {/if}
       {#if getWhatsapp(profile.caption)}
         <Whatsapp whatsapp={getWhatsapp(profile.caption)} />

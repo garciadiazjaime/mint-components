@@ -1,8 +1,9 @@
 <script>
-  export let src
-  export let alt
-  export let height
-  export let width
+  export let src;
+  export let alt;
+  export let height;
+  export let width;
+  export let refreshDB;
 
   import IntersectionObserver from './IntersectionObserver.svelte'
   import Image from './Image.svelte'
@@ -19,6 +20,6 @@
 
 <IntersectionObserver once={true} let:intersecting={intersecting}>
   {#if intersecting || nativeLoading}
-    <Image {alt} {src} {height} {width} />
+    <Image {alt} {src} {height} {width} {refreshDB} />
   {/if}
 </IntersectionObserver>
