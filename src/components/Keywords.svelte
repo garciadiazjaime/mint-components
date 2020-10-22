@@ -1,5 +1,12 @@
 <script>
-	export let keywords;
+  import { onMount } from "svelte";
+  export let keywords;
+  
+  onMount(() => {
+    if(typeof keywords === 'string') {
+      keywords = [keywords];
+    }
+  });
 </script>
 
 <style>
