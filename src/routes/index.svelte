@@ -1,6 +1,9 @@
 <script>
-	import ProfileCard from '../components/ProfileCard.svelte'
-  import Loading from '../components/Loading.svelte'
+	import ProfileCard from '../components/ProfileCard.svelte';
+	import Drawer from '../components/Drawer.svelte';
+  import Loading from '../components/Loading.svelte';
+  
+  let visible = false;
 	const profile = {
     id: '123greenStreet',
     caption: 'whatsapp 6643332222',
@@ -17,4 +20,7 @@
   };
 </script>
 
-<ProfileCard cardAction={() => console.log('This card has been clicked')} {profile} refreshDB={() => console.log('DB refresh request simulation')} />
+<ProfileCard cardAction={() => visible = true} {profile} refreshDB={() => console.log('DB refresh request simulation')} />
+<Drawer bind:visible>
+  Drawer content
+</Drawer>

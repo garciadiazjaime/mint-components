@@ -36,7 +36,7 @@
 		}
 	}
 </style>
-<Card data-id={profile.id ? profile.id : ''} >
+<Card dataId={profile.id ? profile.id : ''} >
   <div class="card-content">
     <div class="card-action" on:click={cardAction}>
       {#if profile.mediaUrl}
