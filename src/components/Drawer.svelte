@@ -1,6 +1,7 @@
 <script>
-  import { slide } from 'svelte/transition';
-	export let visible = false;
+  import { slide, fade } from 'svelte/transition';
+  export let visible = false;
+  export let shaded = false;
 </script>
 <style>
   .drawer {
@@ -12,8 +13,9 @@
     bottom: 0;
     z-index: 10;
     box-shadow: 0 -2px 1px -1px rgba(0,0,0,.2), 0 -1px 1px 0 rgba(0,0,0,.14), 0 -1px 3px 0 rgba(0,0,0,.12);
+    overflow-y: scroll;
   }
-  @media (min-width: 450px) {
+  @media (min-width: 600px) {
 		.drawer {
       height: 50%;
 		}
@@ -51,9 +53,21 @@
   .close:after {  
     transform: rotate(-45deg);
   }
+  .shaded {
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 </style>
 {#if visible}
-  <div class="drawer" transition:slide="{{ y: 200, duration: 350 }}">
+  {#if shaded}
+    <div class="shaded" on:click={() => visible = false} transition:fade />
+  {/if}
+  <div class="drawer" transition:slide="{{ duration: 350 }}">
     <button class="close" on:click={() => visible = false} />
     <slot></slot>
   </div>
