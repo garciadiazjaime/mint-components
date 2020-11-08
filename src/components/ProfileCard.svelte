@@ -8,7 +8,7 @@
   import { formatPhoneNumber, getWhatsapp } from '../utils/postUtil';
   export let profile = {};
   export let cardAction = {};
-  export let refreshDB = {};
+  export let refreshDB;
 </script>
 <style>
   .card-content {
