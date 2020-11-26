@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   export let keywords;
-  
+
   onMount(() => {
     if(typeof keywords === 'string') {
       keywords = [keywords];
@@ -36,7 +36,7 @@
     color: #999;
     font-size: 16px;
     line-height: 1;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
   }
   span:last-child {
     margin-right: 0;

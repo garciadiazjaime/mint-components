@@ -1,9 +1,20 @@
 <script>
 	import ProfileCard from '../components/ProfileCard.svelte';
 	import Drawer from '../components/Drawer.svelte';
-  import Loading from '../components/Loading.svelte';
-  
-  let visible = false;
+  import Modal from '../components/Modal.svelte';
+  import LocationPicker from '../components/LocationPicker.svelte';
+  import UpdateLocationCTA from '../components/UpdateLocationCTA.svelte';
+
+  let DrawerIsVisible = false;
+  let modalIsVisible = false;
+
+  const defaultCoords = {
+    lat: 32.5286807,
+    lng: -117.0477024,
+    zoom: 11,
+    title: 'Zona Centro'
+  }
+
 	const profile = {
     id: '123greenStreet',
     caption: 'whatsapp 6643332222',
@@ -20,7 +31,15 @@
   };
 </script>
 
-<ProfileCard cardAction={() => visible = true} {profile} refreshDB={() => console.log('DB refresh request simulation')} />
-<Drawer bind:visible>
+<div on:click={() => modalIsVisible = true}>
+  <UpdateLocationCTA />
+</div>
+<ProfileCard cardAction={() => DrawerIsVisible = true} {profile} refreshDB={() => console.log('DB refresh request simulation')} />
+<Drawer bind:isVisible={DrawerIsVisible}>
   Drawer content
 </Drawer>
+<Modal bind:isVisible={modalIsVisible}>
+  <LocationPicker {defaultCoords}>
+    ¿En qué área te encuentras?
+  </LocationPicker>
+</Modal>
