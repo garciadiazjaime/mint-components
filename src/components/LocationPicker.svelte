@@ -22,10 +22,12 @@
     dispatch('coordinatesChange');
   }
 </script>
-  <slot></slot>
+<div class="location-picker">
+  <h2><slot></slot></h2>
   {#if centerCoords}
   <div class="map-container">
     <Map coords={centerCoords} zoom={defaultCoords.zoom} enableDragMarker={true}></Map>
   </div>
   {/if}
-  <button action="accept" on:click={handleClick}>Aceptar</button>
+  <button class="cta" action="accept" on:click={handleClick}>Aceptar</button>
+</div>

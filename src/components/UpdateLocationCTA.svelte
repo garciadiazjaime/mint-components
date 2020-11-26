@@ -6,7 +6,7 @@
 
   onMount(setUserLocation);
 </script>
-<div class="location-cta">
+<div class="update-location-cta">
   <div class="grid-container">
     <img src="/icons/location.svg" aria-hidden alt="" />
     <p>
