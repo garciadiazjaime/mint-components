@@ -1,21 +1,12 @@
 <script>
-  import { onMount } from "svelte";
-  import { styleComponent } from "../utils/themeUtil";
-  
-  export let theme = {};
   export let href = '';
+  export let background;
+  export let blank = false;
   let component;
-
-  onMount(async () => {
-    if(theme) {
-      styleComponent(component, theme);
-    }
-  });
 
 </script>
 <style>
   a {
-    background-color: #f69571;
     border: none;
     color: #fff;
     display: block;
@@ -31,6 +22,6 @@
     width: 100%;
   }
 </style>
-<a bind:this={component} {href}>
+<a bind:this={component} {href} style={`background: ${background ? background : '#f69571'}`} target={blank ? '_blank' : '_self'}>
   <slot />
 </a>
