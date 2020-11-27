@@ -54,7 +54,7 @@
     {#if profile.keywords}
       <Keywords keywords={profile.keywords} />
     {/if}
-    {#if profile.location}
+    {#if profile.address}
       <Location address={profile.address} dist={profile.dist} coords={profile.gps} />
     {/if}
     {#if profile.phone}
