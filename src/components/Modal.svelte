@@ -1,24 +1,21 @@
 <script>
   import { slide, fade } from 'svelte/transition';
   export let isVisible = false;
-  export let shaded = false;
 </script>
 <style>
-  .drawer {
+  .modal {
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 20px;
     background: white;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    width: 90vw;
+    position: relative;
+    max-width: 700px;
+    height: 90vh;
+    margin: 0 auto;
     z-index: 10;
-    box-shadow: 0 -2px 1px -1px rgba(0,0,0,.2), 0 -1px 1px 0 rgba(0,0,0,.14), 0 -1px 3px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
     overflow-y: scroll;
-  }
-  @media (min-width: 600px) {
-		.drawer {
-      height: 50%;
-		}
   }
   .close {
     position: absolute;
@@ -53,10 +50,12 @@
   .close:after {
     transform: rotate(-45deg);
   }
-  .shaded {
+  .container {
+    box-sizing: border-box;
     z-index: 9;
     background: rgba(0, 0, 0, 0.6);
     position: fixed;
+    padding: 5vh 0;
     width: 100%;
     height: 100%;
     top: 0;
@@ -64,11 +63,10 @@
   }
 </style>
 {#if isVisible}
-  {#if shaded}
-    <div class="shaded" on:click={() => isVisible = false} transition:fade />
-  {/if}
-  <div class="drawer" transition:slide="{{ duration: 350 }}">
-    <button class="close" on:click={() => isVisible = false} />
-    <slot></slot>
+  <div class="container" on:click={() => isVisible = false} transition:fade>
+    <div class="modal" transition:fade="{{ duration: 250 }}">
+      <button class="close" on:click={() => isVisible = false} />
+      <slot></slot>
+    </div>
   </div>
 {/if}
