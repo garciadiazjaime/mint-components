@@ -9,6 +9,7 @@
   export let profile = {};
   export let cardAction = {};
   export let refreshDB;
+  export let buttonColor;
 </script>
 <style>
   .card-content {
@@ -69,7 +70,7 @@
     {/if}
     {#if profile.phone}
       <div class="last-item">
-        <LinkButton href={`tel:${profile.phone}`}>
+        <LinkButton href={`tel:${profile.phone}`} background={buttonColor}>
           {formatPhoneNumber(profile.phone)}
         </LinkButton>
       </div>
