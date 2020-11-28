@@ -21,7 +21,6 @@
 <style>
   a {
     display: block;
-    min-height: 45px;
     font-size: 16px;
     color: #a2a2a2;
   }
