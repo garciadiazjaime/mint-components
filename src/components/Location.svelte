@@ -12,8 +12,8 @@
     dist = Number(dist)/1000;
     return `${dist.toFixed(1)}km`;
   }
-  function getUrl(coords) {
-    const destination = `${coords.lat}, ${coords.lng}`;
+  function getUrl([lng, lat]) {
+    const destination = `${lat}, ${lng}`;
     return `https://www.google.com/maps/search/?api=1&query=${destination}`;
   }
 </script>
