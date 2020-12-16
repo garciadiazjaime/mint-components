@@ -2,6 +2,8 @@
   export let address;
   export let dist;
   export let coords;
+  export let showDistance = true
+
   $: location = getLocation(address);
   $: distance = getDist(dist);
 
@@ -30,7 +32,7 @@
 </style>
 
 {#if location || dist && coords}
-  <a href={getUrl(coords)} target='_blank'>
-    <span>{distance} { distance && location && '|'}</span> {location}
+  <a href={getUrl(coords)} target='_blank' rel="nofollow">
+    <span>{showDistance ? distance : ''} { showDistance && distance && location ? '|' : ''}</span> {location}
   </a>
 {/if}

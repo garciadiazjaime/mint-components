@@ -10,6 +10,7 @@
   export let cardAction = {};
   export let refreshDB;
   export let buttonColor;
+  export let showDistance;
 </script>
 <style>
   .card-content {
@@ -66,7 +67,7 @@
       <Keywords keywords={profile.keywords} />
     {/if}
     {#if profile.address}
-      <Location address={profile.address} dist={profile.dist} coords={profile.gps} />
+      <Location address={profile.address} dist={profile.dist} coords={profile.gps} showDistance={showDistance} />
     {/if}
     {#if profile.phone}
       <div class="last-item">
