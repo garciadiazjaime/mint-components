@@ -32,7 +32,7 @@
 </style>
 
 {#if location || dist && coords}
-  <a href={getUrl(coords)} target='_blank' rel="nofollow">
+  <a href={getUrl(coords)} target='_blank' rel="nofollow noreferrer">
     <span>{showDistance ? distance : ''} { showDistance && distance && location ? '|' : ''}</span> {location}
   </a>
 {/if}
