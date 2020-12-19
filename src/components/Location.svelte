@@ -24,7 +24,7 @@
   a {
     display: block;
     font-size: 16px;
-    color: #a2a2a2;
+    color: #6b6969;
   }
   span {
     color: #727272;

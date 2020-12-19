@@ -2,14 +2,14 @@
   @keyframes small-expand {
     0%,
     100% {
-      box-shadow: 12px -22px 0 0 #f69571, 12px 2px 0 0 #f69571,
-      -12px 2px 0 0 #f69571, -12px -22px 0 0 #f69571;
+      box-shadow: 12px -22px 0 0 #d66840, 12px 2px 0 0 #d66840,
+      -12px 2px 0 0 #d66840, -12px -22px 0 0 #d66840;
       opacity: 0.7;
     }
     
     50% {
-      box-shadow: 0 -10px 0 0 #f69571, 0 -10px 0 0 #f69571,
-      0 -10px 0 0 #f69571, 0 -10px 0 0 #f69571;
+      box-shadow: 0 -10px 0 0 #d66840, 0 -10px 0 0 #d66840,
+      0 -10px 0 0 #d66840, 0 -10px 0 0 #d66840;
       width: 6px;
       height: 6px;
       opacity: 1;
@@ -19,14 +19,14 @@
   @keyframes big-expand {
     0%,
     100% {
-      box-shadow: 20px -35px 0 0 #f69571, 20px 5px 0 0 #f69571,
-      -20px 5px 0 0 #f69571, -20px -35px 0 0 #f69571;
+      box-shadow: 20px -35px 0 0 #d66840, 20px 5px 0 0 #d66840,
+      -20px 5px 0 0 #d66840, -20px -35px 0 0 #d66840;
       opacity: 0.7;
     }
     
     50% {
-      box-shadow: 0 -15px 0 0 #f69571, 0 -15px 0 0 #f69571,
-      0 -15px 0 0 #f69571, 0 -15px 0 0 #f69571;
+      box-shadow: 0 -15px 0 0 #d66840, 0 -15px 0 0 #d66840,
+      0 -15px 0 0 #d66840, 0 -15px 0 0 #d66840;
       width: 9px;
       height: 9px;
       opacity: 1;
@@ -56,8 +56,8 @@
     top: 10px;
     animation: small-expand 1.5s infinite ease-out;
     /* Edge needs the initial state of the box shadow to be defined in the component, removing this will break it */
-    box-shadow: 12px -22px 0 0 #f69571, 12px 2px 0 0 #f69571,
-    -12px 2px 0 0 #f69571, -12px -22px 0 0 #f69571;
+    box-shadow: 12px -22px 0 0 #d66840, 12px 2px 0 0 #d66840,
+    -12px 2px 0 0 #d66840, -12px -22px 0 0 #d66840;
     width: 4px;
     height: 4px;
     border-radius: 50%;
@@ -95,8 +95,8 @@
     display: block;
     animation: big-expand 1.5s infinite ease-out;
     /* Edge needs the initial state of the box shadow to be defined in the component, removing this will break it */
-    box-shadow: 20px -35px 0 0 #f69571, 20px 5px 0 0 #f69571,
-    -20px 5px 0 0 #f69571, -20px -35px 0 0 #f69571;
+    box-shadow: 20px -35px 0 0 #d66840, 20px 5px 0 0 #d66840,
+    -20px 5px 0 0 #d66840, -20px -35px 0 0 #d66840;
     width: 6px;
     height: 6px;
     top: 15px;
