@@ -45,11 +45,15 @@
 			font-size: 20px;
 		}
 	}
+
+  .image-container {
+    min-height: 185px;
+  }
 </style>
 <Card dataId={profile.id ? profile.id : ''} >
   <div class="card-content">
     {#if profile.mediaUrl}
-      <div class="card-action" on:click={cardAction}>
+      <div class="card-action image-container" on:click={cardAction}>
         <ImageLoader src={profile.mediaUrl} alt={profile.title} height="180px" {refreshDB} />
         {#if getWhatsapp(profile.caption)}
           <Whatsapp whatsapp={getWhatsapp(profile.caption)} />
