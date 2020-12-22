@@ -22,6 +22,6 @@
     width: 100%;
   }
 </style>
-<a bind:this={component} {href} style={`background: ${background ? background : '#d66840'}`} target={blank ? '_blank' : '_self'}>
+<a bind:this={component} {href} style={`background: ${background ? background : '#d66840'}`} target={blank ? '_blank' : '_self'} rel="nofollow noreferrer">
   <slot />
 </a>
