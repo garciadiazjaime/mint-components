@@ -55,7 +55,7 @@
   img {
     opacity: 0;
     object-fit: cover;
-    transition: opacity 1200ms ease-out;
+    transition: opacity 600ms ease-out;
   }
   img.loaded {
     opacity: 1;
