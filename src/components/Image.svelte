@@ -38,7 +38,8 @@
       loaded = true
     }
     thisImage.onerror = () => {
-      src = getValidImage(imageIndex) || errorImage;
+      src = errorImage
+
       if (typeof refreshDB === 'function') {
         refreshDB(src);
       }
