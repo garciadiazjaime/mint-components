@@ -9,17 +9,27 @@
   export let profile = {};
   export let cardAction = {};
   export let refreshDB;
+  export let buttonColor;
+  export let showDistance;
 </script>
 <style>
   .card-content {
 		position: relative;
-    padding: 8px;
     transition: height .3s;
     height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
   }
+
   .card-action {
     cursor: pointer;
   }
+
+  .last-item {
+    margin-top: auto;
+    padding-top: 10px;
+  }
+
   .title {
     line-height: 1;
     color: #313d69;
@@ -38,29 +48,33 @@
 </style>
 <Card dataId={profile.id ? profile.id : ''} >
   <div class="card-content">
-    <div class="card-action" on:click={cardAction}>
-      {#if profile.mediaUrl}
+    {#if profile.mediaUrl}
+      <div class="card-action" on:click={cardAction}>
         <ImageLoader src={profile.mediaUrl} alt={profile.title} height="180px" {refreshDB} />
-      {/if}
-      {#if getWhatsapp(profile.caption)}
-        <Whatsapp whatsapp={getWhatsapp(profile.caption)} />
-      {/if}
-      {#if profile.title}
+        {#if getWhatsapp(profile.caption)}
+          <Whatsapp whatsapp={getWhatsapp(profile.caption)} />
+        {/if}
+      </div>
+    {/if}
+    {#if profile.title}
+      <div class="card-action" on:click={cardAction}>
         <div class="title">
           {profile.title}
         </div>
-      {/if}
-    </div>
+      </div>
+    {/if}
     {#if profile.keywords}
       <Keywords keywords={profile.keywords} />
     {/if}
-    {#if profile.location}
-      <Location address={profile.address} dist={profile.dist} coords={profile.gps} />
+    {#if profile.address}
+      <Location address={profile.address} dist={profile.dist} coords={profile.gps} showDistance={showDistance} />
     {/if}
     {#if profile.phone}
-      <LinkButton href={`tel:${profile.phone}`}>
+      <div class="last-item">
+        <LinkButton href={`tel:${profile.phone}`} background={buttonColor}>
           {formatPhoneNumber(profile.phone)}
-      </LinkButton>
+        </LinkButton>
+      </div>
     {/if}
   </div>
 </Card>

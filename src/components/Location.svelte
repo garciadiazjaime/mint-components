@@ -2,6 +2,8 @@
   export let address;
   export let dist;
   export let coords;
+  export let showDistance = true
+
   $: location = getLocation(address);
   $: distance = getDist(dist);
 
@@ -12,8 +14,8 @@
     dist = Number(dist)/1000;
     return `${dist.toFixed(1)}km`;
   }
-  function getUrl(coords) {
-    const destination = `${coords.lat}, ${coords.lng}`;
+  function getUrl([lng, lat]) {
+    const destination = `${lat}, ${lng}`;
     return `https://www.google.com/maps/search/?api=1&query=${destination}`;
   }
 </script>
@@ -21,9 +23,8 @@
 <style>
   a {
     display: block;
-    min-height: 45px;
     font-size: 16px;
-    color: #a2a2a2;
+    color: #6b6969;
   }
   span {
     color: #727272;
@@ -31,7 +32,7 @@
 </style>
 
 {#if location || dist && coords}
-  <a href={getUrl(coords)} target='_blank'>
-    <span>{distance} { distance && location && '|'}</span> {location}
+  <a href={getUrl(coords)} target='_blank' rel="nofollow noreferrer">
+    <span>{showDistance ? distance : ''} { showDistance && distance && location ? '|' : ''}</span> {location}
   </a>
 {/if}

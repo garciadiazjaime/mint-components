@@ -20,6 +20,6 @@
     height: 50px;
   }
 </style>
-<a class="whatsapp-btn" on:click={handleClick} href={`https://wa.me/${whatsapp}${text ? `text=${text}` : '' }`} title="Enviar mensaje por Whatsapp" target="_blank">
-  <img class="icon" src="/whatsapp.svg" alt="Enviar mensaje por Whatsapp" aria-hidden />
+<a class="whatsapp-btn" on:click={handleClick} href={`https://wa.me/${whatsapp}${text ? `text=${text}` : '' }`} title="Enviar mensaje por Whatsapp" target="_blank" rel="nofollow noreferrer">
+  <img class="icon" src="/whatsapp.svg" alt="Enviar mensaje por Whatsapp" />
 </a>

@@ -33,7 +33,7 @@
   span {
     display: inline-block;
     padding-right: 6px;
-    color: #999;
+    color: #444;
     font-size: 16px;
     line-height: 1;
     padding-bottom: 15px;
