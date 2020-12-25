@@ -11,6 +11,7 @@
   export let refreshDB;
   export let buttonColor;
   export let showDistance;
+  export let alt = ''
 </script>
 <style>
   .card-content {
@@ -54,7 +55,7 @@
   <div class="card-content">
     {#if profile.mediaUrl}
       <div class="card-action image-container" on:click={cardAction}>
-        <ImageLoader src={profile.mediaUrl} alt={profile.title} height="180px" {refreshDB} />
+        <ImageLoader src={profile.mediaUrl} alt={`${alt} ${profile.title}`} height="180px" {refreshDB} />
         {#if getWhatsapp(profile.caption)}
           <Whatsapp whatsapp={getWhatsapp(profile.caption)} />
         {/if}
