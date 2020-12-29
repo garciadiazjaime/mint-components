@@ -49,7 +49,7 @@
   }
 </style>
 <ul>
-  {#each items as { title, content, component }, index}
+  {#each items as { title, content }, index}
     <li>
       <button on:click={() => openedItem !== index ? openedItem = index : openedItem = null}>{title}</button>
       {#if openedItem ===index}
