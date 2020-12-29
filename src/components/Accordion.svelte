@@ -1,11 +1,7 @@
 <script>
-  import { onMount } from "svelte";
   import { slide } from 'svelte/transition';
   export let items = [];
   let openedItem = null;
-
-  onMount(async () => {
-  });
 
 </script>
 <style>
