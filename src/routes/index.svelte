@@ -4,6 +4,8 @@
   import Modal from '../components/Modal.svelte';
   import LocationPicker from '../components/LocationPicker.svelte';
   import UpdateLocationCTA from '../components/UpdateLocationCTA.svelte';
+  import Accordion from '../components/Accordion.svelte';
+import LinkButton from '../components/LinkButton.svelte';
 
   let DrawerIsVisible = false;
   let modalIsVisible = false;
@@ -29,6 +31,24 @@
     dist: 1500,
     gps: [-117.1148935, 32.5062778],
   };
+
+  const accordionData = [
+    {
+      title: 'Title 1',
+      content: 'Content 1',
+      component: LinkButton,
+    },
+    {
+      title: 'Title 2',
+      content: 'Content 2',
+      component: LinkButton,
+    },
+    {
+      title: 'Title 3',
+      content: 'Content 3',
+      component: LinkButton,
+    },
+  ]
 </script>
 
 <div on:click={() => modalIsVisible = true}>
@@ -43,3 +63,4 @@
     ¿En qué área te encuentras?
   </LocationPicker>
 </Modal>
+<Accordion items={accordionData} />
