@@ -3,6 +3,8 @@
   export let items = [];
   let openedItem = null;
 
+  const setOpenedItem = index => openedItem !== index ? openedItem = index : openedItem = null;
+
 </script>
 <style>
   ul {
@@ -47,7 +49,7 @@
 <ul>
   {#each items as { title, content }, index}
     <li>
-      <button on:click={() => openedItem !== index ? openedItem = index : openedItem = null}>{title}</button>
+      <button on:click={() => setOpenedItem(index)}>{title}</button>
       {#if openedItem ===index}
         <p transition:slide="{{ duration: 150 }}">
             {content}
