@@ -36,7 +36,6 @@ import LinkButton from '../components/LinkButton.svelte';
     {
       title: 'Title 1',
       content: 'Content 1',
-      component: LinkButton,
     },
     {
       title: 'Title 2',
