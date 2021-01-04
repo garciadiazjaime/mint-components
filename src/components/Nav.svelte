@@ -51,5 +51,6 @@
 <nav>
 	<ul>
 		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
+		<li><a aria-current="{segment === 'mapa' ? 'page' : undefined}" href="./map">mapa</a></li>
 	</ul>
 </nav>
