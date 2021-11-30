@@ -33,13 +33,13 @@
 
   .title {
     line-height: 1;
+    display: block;
     color: #313d69;
     font-size: 22px;
     font-weight: 600;
     text-align: left;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    text-align: center;
+    margin-bottom: 30px;
   }
   @media (min-width: 450px) {
 		.title {
