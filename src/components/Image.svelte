@@ -3,7 +3,7 @@
   import Loading from '../components/Loading.svelte';
 
   export let src = [];
-  export let refreshDB = {};
+  export let refreshDB;
   export let alt;
   export let height = '100%';
   export let width = '100%';
@@ -39,7 +39,8 @@
     }
     thisImage.onerror = () => {
       src = getValidImage(imageIndex) || errorImage;
-      if(refreshDB) {
+      console.log(refreshDB)
+      if(typeof refreshDB === 'function') {
         refreshDB(src);
       }
     }

@@ -1,6 +1,6 @@
 <script>
   import Card from './Card.svelte';
-  import LinkButton from './LinkButton.svelte';
+  import Phone from './LinkButton.svelte';
   import Keywords from './Keywords.svelte';
   import Location from './Location.svelte';
   import ImageLoader from './ImageLoader.svelte';
@@ -8,7 +8,7 @@
   import { formatPhoneNumber, getWhatsapp } from '../utils/postUtil';
   export let profile = {};
   export let cardAction = {};
-  export let refreshDB = {};
+  export let refreshDB;
 </script>
 <style>
   .card-content {
@@ -58,9 +58,9 @@
       <Location address={profile.address} dist={profile.dist} coords={profile.gps} />
     {/if}
     {#if profile.phone}
-    <LinkButton href={`tel:${profile.phone}`}>
+    <Phone href={`tel:${profile.phone}`}>
       {formatPhoneNumber(profile.phone)}
-    </LinkButton>
+    </Phone>
     {/if}
   </div>
 </Card>
